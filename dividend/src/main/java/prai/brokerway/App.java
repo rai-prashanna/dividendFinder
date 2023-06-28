@@ -421,7 +421,6 @@ String rawSecurities="{\n" +
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> marketResponse = HttpClient.newHttpClient().send(marketRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println(marketResponse.body());
 
         var securities = objectMapper.readValue(marketResponse.body(), StockMarket.class);
 
@@ -440,7 +439,6 @@ String dividendEndPoint= "https://morning-star.p.rapidapi.com/stock/v2/get-divid
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> dividendResponse = HttpClient.newHttpClient().send(dividendRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println(dividendResponse.body());
         var dividends = objectMapper.readValue(dividendResponse.body(), Dividend.class);
 
 //dividends.getDividendData().getDividendHistory().get(0).getDatum().get(0).get(5)
@@ -466,7 +464,7 @@ String dividendEndPoint= "https://morning-star.p.rapidapi.com/stock/v2/get-divid
         var highest = sortedDividends.get(sortedDividends.size()-1);
         System.out.println("The minimum dividend amount the five last years (for Apple Inc) "+lowest.get());
         System.out.println("The maximum dividend amount the five last years (for Apple Inc) "+highest);
-        System.out.println("The average dividend amount the five last years (for Apple Inc) "+average);
+        System.out.println("The average dividend amount the five last years (for Apple Inc) "+average.getAsDouble());
 
 
     }
