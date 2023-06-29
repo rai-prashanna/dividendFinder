@@ -12,11 +12,12 @@ public class ApiCaller {
    static String marketEndPoint = "https://morning-star.p.rapidapi.com/market/v2/auto-complete?q=";
     static String dividendEndPoint = "https://morning-star.p.rapidapi.com/stock/v2/get-dividends?performanceId=";
 
+    static String apiKey="f56909dc08mshc050a5493f5247bp1389e5jsna2c1114008cf";
 
     public static String doGetRequest(String endPoint) throws IOException, InterruptedException {
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create(endPoint))
-                .header("X-RapidAPI-Key", "f56909dc08mshc050a5493f5247bp1389e5jsna2c1114008cf")
+                .header("X-RapidAPI-Key", apiKey)
                 .header("X-RapidAPI-Host", "morning-star.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
