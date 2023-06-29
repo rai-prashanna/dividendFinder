@@ -3,6 +3,7 @@ package prai.brokerway;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,13 +37,11 @@ public class DividendInfoModel {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public DividendInfoModel() {
     }
 
     /**
-     *
      * @param highestDividendAmountLast5Years
      * @param stockName
      * @param lowestDividendAmountLast5Years
@@ -124,30 +123,30 @@ public class DividendInfoModel {
         sb.append(DividendInfoModel.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("stockName");
         sb.append('=');
-        sb.append(((this.stockName == null)?"<null>":this.stockName));
+        sb.append(((this.stockName == null) ? "<null>" : this.stockName));
         sb.append(',');
         sb.append("exchange");
         sb.append('=');
-        sb.append(((this.exchange == null)?"<null>":this.exchange));
+        sb.append(((this.exchange == null) ? "<null>" : this.exchange));
         sb.append(',');
         sb.append("highestDividendAmountLast5Years");
         sb.append('=');
-        sb.append(((this.highestDividendAmountLast5Years == null)?"<null>":this.highestDividendAmountLast5Years));
+        sb.append(((this.highestDividendAmountLast5Years == null) ? "<null>" : this.highestDividendAmountLast5Years));
         sb.append(',');
         sb.append("lowestDividendAmountLast5Years");
         sb.append('=');
-        sb.append(((this.lowestDividendAmountLast5Years == null)?"<null>":this.lowestDividendAmountLast5Years));
+        sb.append(((this.lowestDividendAmountLast5Years == null) ? "<null>" : this.lowestDividendAmountLast5Years));
         sb.append(',');
         sb.append("averageDividendAmountLast5Years");
         sb.append('=');
-        sb.append(((this.averageDividendAmountLast5Years == null)?"<null>":this.averageDividendAmountLast5Years));
+        sb.append(((this.averageDividendAmountLast5Years == null) ? "<null>" : this.averageDividendAmountLast5Years));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');
-        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
+        sb.append(((this.additionalProperties == null) ? "<null>" : this.additionalProperties));
         sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }
@@ -157,12 +156,12 @@ public class DividendInfoModel {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result* 31)+((this.highestDividendAmountLast5Years == null)? 0 :this.highestDividendAmountLast5Years.hashCode()));
-        result = ((result* 31)+((this.stockName == null)? 0 :this.stockName.hashCode()));
-        result = ((result* 31)+((this.lowestDividendAmountLast5Years == null)? 0 :this.lowestDividendAmountLast5Years.hashCode()));
-        result = ((result* 31)+((this.averageDividendAmountLast5Years == null)? 0 :this.averageDividendAmountLast5Years.hashCode()));
-        result = ((result* 31)+((this.exchange == null)? 0 :this.exchange.hashCode()));
-        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
+        result = ((result * 31) + ((this.highestDividendAmountLast5Years == null) ? 0 : this.highestDividendAmountLast5Years.hashCode()));
+        result = ((result * 31) + ((this.stockName == null) ? 0 : this.stockName.hashCode()));
+        result = ((result * 31) + ((this.lowestDividendAmountLast5Years == null) ? 0 : this.lowestDividendAmountLast5Years.hashCode()));
+        result = ((result * 31) + ((this.averageDividendAmountLast5Years == null) ? 0 : this.averageDividendAmountLast5Years.hashCode()));
+        result = ((result * 31) + ((this.exchange == null) ? 0 : this.exchange.hashCode()));
+        result = ((result * 31) + ((this.additionalProperties == null) ? 0 : this.additionalProperties.hashCode()));
         return result;
     }
 
@@ -175,7 +174,7 @@ public class DividendInfoModel {
             return false;
         }
         DividendInfoModel rhs = ((DividendInfoModel) other);
-        return (((((((this.highestDividendAmountLast5Years == rhs.highestDividendAmountLast5Years)||((this.highestDividendAmountLast5Years!= null)&&this.highestDividendAmountLast5Years.equals(rhs.highestDividendAmountLast5Years)))&&((this.stockName == rhs.stockName)||((this.stockName!= null)&&this.stockName.equals(rhs.stockName))))&&((this.lowestDividendAmountLast5Years == rhs.lowestDividendAmountLast5Years)||((this.lowestDividendAmountLast5Years!= null)&&this.lowestDividendAmountLast5Years.equals(rhs.lowestDividendAmountLast5Years))))&&((this.averageDividendAmountLast5Years == rhs.averageDividendAmountLast5Years)||((this.averageDividendAmountLast5Years!= null)&&this.averageDividendAmountLast5Years.equals(rhs.averageDividendAmountLast5Years))))&&((this.exchange == rhs.exchange)||((this.exchange!= null)&&this.exchange.equals(rhs.exchange))))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))));
+        return (((((((this.highestDividendAmountLast5Years == rhs.highestDividendAmountLast5Years) || ((this.highestDividendAmountLast5Years != null) && this.highestDividendAmountLast5Years.equals(rhs.highestDividendAmountLast5Years))) && ((this.stockName == rhs.stockName) || ((this.stockName != null) && this.stockName.equals(rhs.stockName)))) && ((this.lowestDividendAmountLast5Years == rhs.lowestDividendAmountLast5Years) || ((this.lowestDividendAmountLast5Years != null) && this.lowestDividendAmountLast5Years.equals(rhs.lowestDividendAmountLast5Years)))) && ((this.averageDividendAmountLast5Years == rhs.averageDividendAmountLast5Years) || ((this.averageDividendAmountLast5Years != null) && this.averageDividendAmountLast5Years.equals(rhs.averageDividendAmountLast5Years)))) && ((this.exchange == rhs.exchange) || ((this.exchange != null) && this.exchange.equals(rhs.exchange)))) && ((this.additionalProperties == rhs.additionalProperties) || ((this.additionalProperties != null) && this.additionalProperties.equals(rhs.additionalProperties))));
     }
 
 }
