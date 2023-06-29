@@ -407,19 +407,22 @@ public class App {
                 "  }\n" +
                 "}";
 
-        String stockName = "apple";
+        String queryName = "apple";
         String stockFullName = "Apple Inc";
+        String stockName="XNAS";
 
         Utility utility = new Utility();
-//        var applePerformanceId = utility.findPerformanceId(rawSecurities,stockName,stockFullName);
         ApiCaller api = new ApiCaller();
-        var rawDividend = api.findDividendsByStockName(stockName, "XNAS",stockFullName);
-        var dividends = objectMapper.readValue(rawDividends, Dividend.class);
+       var rawDividend = api.findDividendsByStockName(queryName, "XNAS",stockFullName);
+        var dividends = objectMapper.readValue(rawDividend, Dividend.class);
+var min=utility.getMiniumDividend(dividends);
+        var max=utility.getMaxDividend(dividends);
+        var avg=utility.getAvgDividend(dividends);
+        System.out.println("The minimum dividend amount the five last years (for Apple Inc) " + min);
+        System.out.println("The maximum dividend amount the five last years (for Apple Inc) " + max);
+        System.out.println("The average dividend amount the five last years (for Apple Inc) " + avg);
 
-        System.out.println("The minimum dividend amount the five last years (for Apple Inc) " + utility.getMiniumDividend(dividends));
-        System.out.println("The maximum dividend amount the five last years (for Apple Inc) " + utility.getMaxDividend(dividends));
-        System.out.println("The average dividend amount the five last years (for Apple Inc) " + utility.getAvgDividend(dividends));
-
-
+        DividendInfoModel result=  new DividendInfoModel(stockFullName,stockName,max,min,avg);
+        System.out.println("The result "+result.toString());
     }
 }
