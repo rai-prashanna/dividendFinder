@@ -1,6 +1,7 @@
 package prai.brokerway;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 
 
@@ -407,19 +408,17 @@ public class App {
                 "}";
 
         String stockName = "apple";
-        String marketEndPoint = "https://morning-star.p.rapidapi.com/market/v2/auto-complete?q=" + stockName;
+        String stockFullName = "Apple Inc";
 
         Utility utility = new Utility();
-        var applePerformanceId = utility.findPerformanceId(rawSecurities,"XNAS","Apple Inc");
-
-        String dividendEndPoint = "https://morning-star.p.rapidapi.com/stock/v2/get-dividends?performanceId=" + applePerformanceId;
-
+//        var applePerformanceId = utility.findPerformanceId(rawSecurities,stockName,stockFullName);
+        ApiCaller api = new ApiCaller();
+        var rawDividend = api.findDividendsByStockName(stockName, "XNAS",stockFullName);
         var dividends = objectMapper.readValue(rawDividends, Dividend.class);
 
         System.out.println("The minimum dividend amount the five last years (for Apple Inc) " + utility.getMiniumDividend(dividends));
         System.out.println("The maximum dividend amount the five last years (for Apple Inc) " + utility.getMaxDividend(dividends));
         System.out.println("The average dividend amount the five last years (for Apple Inc) " + utility.getAvgDividend(dividends));
-
 
 
     }
