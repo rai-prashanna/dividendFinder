@@ -1,94 +1,88 @@
 package prai.brokerway;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.*;
-import java.util.stream.Collectors;
+
 
 /**
- * Hello world!
+ * Dividend finder!
  */
 public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
-        ObjectMapper objectMapper=new ObjectMapper();;
-String rawSecurities="{\n" +
-        "    \"count\": 7,\n" +
-        "    \"pages\": 2,\n" +
-        "    \"results\": [\n" +
-        "      {\n" +
-        "        \"id\": \"us_security-0P000000GY\",\n" +
-        "        \"name\": \"Apple Inc\",\n" +
-        "        \"description\": null,\n" +
-        "        \"exchange\": \"XNAS\",\n" +
-        "        \"performanceId\": \"0P000000GY\",\n" +
-        "        \"securityType\": \"ST\",\n" +
-        "        \"ticker\": \"AAPL\",\n" +
-        "        \"type\": \"us_security\",\n" +
-        "        \"url\": null\n" +
-        "      },\n" +
-        "      {\n" +
-        "        \"id\": \"us_security-0P000162G2\",\n" +
-        "        \"name\": \"Apple Hospitality REIT Inc\",\n" +
-        "        \"description\": null,\n" +
-        "        \"exchange\": \"XNYS\",\n" +
-        "        \"performanceId\": \"0P000162G2\",\n" +
-        "        \"securityType\": \"ST\",\n" +
-        "        \"ticker\": \"APLE\",\n" +
-        "        \"type\": \"us_security\",\n" +
-        "        \"url\": null\n" +
-        "      },\n" +
-        "      {\n" +
-        "        \"id\": \"us_security-0P0000AHDO\",\n" +
-        "        \"name\": \"Apple Rush Co Inc\",\n" +
-        "        \"description\": null,\n" +
-        "        \"exchange\": \"PINX\",\n" +
-        "        \"performanceId\": \"0P0000AHDO\",\n" +
-        "        \"securityType\": \"ST\",\n" +
-        "        \"ticker\": \"APRU\",\n" +
-        "        \"type\": \"us_security\",\n" +
-        "        \"url\": null\n" +
-        "      },\n" +
-        "      {\n" +
-        "        \"id\": \"us_security-0P0000AGHZ\",\n" +
-        "        \"name\": \"Golden Apple Oil and Gas Inc\",\n" +
-        "        \"description\": null,\n" +
-        "        \"exchange\": \"PINX\",\n" +
-        "        \"performanceId\": \"0P0000AGHZ\",\n" +
-        "        \"securityType\": \"ST\",\n" +
-        "        \"ticker\": \"GAPJ\",\n" +
-        "        \"type\": \"us_security\",\n" +
-        "        \"url\": null\n" +
-        "      },\n" +
-        "      {\n" +
-        "        \"id\": \"com_page-asset_management_companies_bn00000bx0\",\n" +
-        "        \"name\": \"Appleseed\",\n" +
-        "        \"description\": \"Asset Management Companies\",\n" +
-        "        \"exchange\": null,\n" +
-        "        \"performanceId\": null,\n" +
-        "        \"securityType\": null,\n" +
-        "        \"ticker\": null,\n" +
-        "        \"type\": \"com_page\",\n" +
-        "        \"url\": \"https://www.morningstar.com/asset-management-companies/BN00000BX0\"\n" +
-        "      },\n" +
-        "      {\n" +
-        "        \"id\": \"us_security-0P00006EMQ\",\n" +
-        "        \"name\": \"Appleseed Investor\",\n" +
-        "        \"description\": null,\n" +
-        "        \"exchange\": \"XNAS\",\n" +
-        "        \"performanceId\": \"0P00006EMQ\",\n" +
-        "        \"securityType\": \"FO\",\n" +
-        "        \"ticker\": \"APPLX\",\n" +
-        "        \"type\": \"us_security\",\n" +
-        "        \"url\": null\n" +
-        "      }\n" +
-        "    ]\n" +
-        "  }";
+        ObjectMapper objectMapper = new ObjectMapper();
+        ;
+        String rawSecurities = "{\n" +
+                "    \"count\": 7,\n" +
+                "    \"pages\": 2,\n" +
+                "    \"results\": [\n" +
+                "      {\n" +
+                "        \"id\": \"us_security-0P000000GY\",\n" +
+                "        \"name\": \"Apple Inc\",\n" +
+                "        \"description\": null,\n" +
+                "        \"exchange\": \"XNAS\",\n" +
+                "        \"performanceId\": \"0P000000GY\",\n" +
+                "        \"securityType\": \"ST\",\n" +
+                "        \"ticker\": \"AAPL\",\n" +
+                "        \"type\": \"us_security\",\n" +
+                "        \"url\": null\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"id\": \"us_security-0P000162G2\",\n" +
+                "        \"name\": \"Apple Hospitality REIT Inc\",\n" +
+                "        \"description\": null,\n" +
+                "        \"exchange\": \"XNYS\",\n" +
+                "        \"performanceId\": \"0P000162G2\",\n" +
+                "        \"securityType\": \"ST\",\n" +
+                "        \"ticker\": \"APLE\",\n" +
+                "        \"type\": \"us_security\",\n" +
+                "        \"url\": null\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"id\": \"us_security-0P0000AHDO\",\n" +
+                "        \"name\": \"Apple Rush Co Inc\",\n" +
+                "        \"description\": null,\n" +
+                "        \"exchange\": \"PINX\",\n" +
+                "        \"performanceId\": \"0P0000AHDO\",\n" +
+                "        \"securityType\": \"ST\",\n" +
+                "        \"ticker\": \"APRU\",\n" +
+                "        \"type\": \"us_security\",\n" +
+                "        \"url\": null\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"id\": \"us_security-0P0000AGHZ\",\n" +
+                "        \"name\": \"Golden Apple Oil and Gas Inc\",\n" +
+                "        \"description\": null,\n" +
+                "        \"exchange\": \"PINX\",\n" +
+                "        \"performanceId\": \"0P0000AGHZ\",\n" +
+                "        \"securityType\": \"ST\",\n" +
+                "        \"ticker\": \"GAPJ\",\n" +
+                "        \"type\": \"us_security\",\n" +
+                "        \"url\": null\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"id\": \"com_page-asset_management_companies_bn00000bx0\",\n" +
+                "        \"name\": \"Appleseed\",\n" +
+                "        \"description\": \"Asset Management Companies\",\n" +
+                "        \"exchange\": null,\n" +
+                "        \"performanceId\": null,\n" +
+                "        \"securityType\": null,\n" +
+                "        \"ticker\": null,\n" +
+                "        \"type\": \"com_page\",\n" +
+                "        \"url\": \"https://www.morningstar.com/asset-management-companies/BN00000BX0\"\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"id\": \"us_security-0P00006EMQ\",\n" +
+                "        \"name\": \"Appleseed Investor\",\n" +
+                "        \"description\": null,\n" +
+                "        \"exchange\": \"XNAS\",\n" +
+                "        \"performanceId\": \"0P00006EMQ\",\n" +
+                "        \"securityType\": \"FO\",\n" +
+                "        \"ticker\": \"APPLX\",\n" +
+                "        \"type\": \"us_security\",\n" +
+                "        \"url\": null\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  }";
         String rawDividends = "{\n" +
                 "  \"rows\": [\n" +
                 "    {\n" +
@@ -412,59 +406,20 @@ String rawSecurities="{\n" +
                 "  }\n" +
                 "}";
 
-        String marketEndPoint= "https://morning-star.p.rapidapi.com/market/v2/auto-complete?q="+"apple";
+        String stockName = "apple";
+        String marketEndPoint = "https://morning-star.p.rapidapi.com/market/v2/auto-complete?q=" + stockName;
 
-        HttpRequest marketRequest = HttpRequest.newBuilder()
-                .uri(URI.create(marketEndPoint))
-                .header("X-RapidAPI-Key", "f56909dc08mshc050a5493f5247bp1389e5jsna2c1114008cf")
-                .header("X-RapidAPI-Host", "morning-star.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> marketResponse = HttpClient.newHttpClient().send(marketRequest, HttpResponse.BodyHandlers.ofString());
+        Utility utility = new Utility();
+        var applePerformanceId = utility.findPerformanceId(rawSecurities,"XNAS","Apple Inc");
 
-        var securities = objectMapper.readValue(marketResponse.body(), StockMarket.class);
+        String dividendEndPoint = "https://morning-star.p.rapidapi.com/stock/v2/get-dividends?performanceId=" + applePerformanceId;
 
-        //securities.results.get(0).getExchange().equals("XNAS")
+        var dividends = objectMapper.readValue(rawDividends, Dividend.class);
 
-        var stockCompany= securities.getResults().stream()
-                .filter(e->"XNAS".equals(e.getExchange()))
-                .filter(e->"Apple Inc".equals(e.getName())).findAny()
-                .orElse(null);
-        var performanceId=stockCompany.getPerformanceId();
-String dividendEndPoint= "https://morning-star.p.rapidapi.com/stock/v2/get-dividends?performanceId="+performanceId;
-        HttpRequest dividendRequest = HttpRequest.newBuilder()
-                .uri(URI.create(dividendEndPoint))
-                .header("X-RapidAPI-Key", "f56909dc08mshc050a5493f5247bp1389e5jsna2c1114008cf")
-                .header("X-RapidAPI-Host", "morning-star.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> dividendResponse = HttpClient.newHttpClient().send(dividendRequest, HttpResponse.BodyHandlers.ofString());
-        var dividends = objectMapper.readValue(dividendResponse.body(), Dividend.class);
+        System.out.println("The minimum dividend amount the five last years (for Apple Inc) " + utility.getMiniumDividend(dividends));
+        System.out.println("The maximum dividend amount the five last years (for Apple Inc) " + utility.getMaxDividend(dividends));
+        System.out.println("The average dividend amount the five last years (for Apple Inc) " + utility.getAvgDividend(dividends));
 
-//dividends.getDividendData().getDividendHistory().get(0).getDatum().get(0).get(5)
-        Map<String,Double> dividend = new HashMap<>();
-        for (DividendHistory dividendHistory:dividends.getDividendData().getDividendHistory()) {
-            OptionalDouble average = dividendHistory.getDatum()
-                    .stream()
-                    .mapToDouble(e -> Double.parseDouble(e.get(5)))
-                    .average();
-            dividend.put(dividendHistory.getYear(),average.getAsDouble());
-        }
-        List<Double> sortedDividends= dividend.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())
-                .map(Map.Entry::getValue)
-                .collect(Collectors.toList());
-
-        OptionalDouble average = sortedDividends
-                .stream()
-                .mapToDouble(a -> a)
-                .average();
-
-        var lowest = sortedDividends.stream().findFirst();
-        var highest = sortedDividends.get(sortedDividends.size()-1);
-        System.out.println("The minimum dividend amount the five last years (for Apple Inc) "+lowest.get());
-        System.out.println("The maximum dividend amount the five last years (for Apple Inc) "+highest);
-        System.out.println("The average dividend amount the five last years (for Apple Inc) "+average.getAsDouble());
 
 
     }
